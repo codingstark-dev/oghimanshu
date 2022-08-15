@@ -7,14 +7,19 @@
   function takess() {
     // if (typeof window !== 'undefined') {
     html2canvas(document.getElementById("quotes") as any).then((canvas) => {
-      canvas.toBlob(function (blob : any) {
-        saveAs(blob  , `og.himanshu.dev ${random * 10}.png`);
+      canvas.toBlob(function (blob: any) {
+        saveAs(blob, `og.himanshu.dev ${random * 10}.png`);
       });
 
       // document.body.appendChild(canvas);
     });
   }
-
+  function strikeThrough(text: string) {
+    return text
+      .split("")
+      .map((char) => char + "\u0336")
+      .join("");
+  }
   $: reload();
   function reload() {
     if (random != Math.floor(Math.random() * cringe.length)) {
@@ -26,7 +31,6 @@
     // window.location.reload();
   }
   // }
-
 </script>
 
 <li class="link-card" id="quotes">
@@ -35,7 +39,8 @@
       {cringe[random].quotes}
     </h2>
     <p class="font-semibold">
-      <span>-</span> <strike>{cringe[random].author}</strike> Himanshu Maurya
+      <span>-</span>
+      <span>{strikeThrough(cringe[random].author)}</span>&ensp Himanshu Maurya
     </p>
   </a><button on:click={reload}
     ><svg class="w-6" viewBox="0 0 24 24">
@@ -46,11 +51,9 @@
     </svg></button
   >
 </li>
-<button on:click={takess} class="w-full font-bold" >
-
+<button on:click={takess} class="w-full font-bold">
   <p class="instructions">Download Image</p>
 </button>
-
 
 <style>
   .instructions {
