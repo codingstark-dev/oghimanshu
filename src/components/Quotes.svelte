@@ -3,6 +3,7 @@
   import html2canvas from "html2canvas";
   import { saveAs } from "file-saver";
 
+
   let random = Math.floor(Math.random() * cringe.length);
   function takess() {
     // if (typeof window !== 'undefined') {

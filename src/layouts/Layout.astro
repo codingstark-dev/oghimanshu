@@ -5,6 +5,7 @@ export interface Props {
 }
 
 const { title, description } = Astro.props as Props;
+const gtagUrl = `https://www.googletagmanager.com/gtag/js?id=G-CL54YKL6ZB`;
 ---
 
 <!DOCTYPE html>
@@ -24,6 +25,16 @@ const { title, description } = Astro.props as Props;
 	<meta property="og:locale" content="en_US" />
 
 	<meta name="description" content={description}>
+	---
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src={gtagUrl}></script>
+	<script define:vars={"G-CL54YKL6ZB"}>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+		gtag('config', "G-CL54YKL6ZB");
+	</script>
+
 </head>
 
 <body>
