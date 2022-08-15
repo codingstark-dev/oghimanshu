@@ -1,0 +1,23 @@
+{
+  "name": "og.himanshu.dev",
+  "version": "0.0.3",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev --host",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "devDependencies": {
+    "@astrojs/svelte": "^1.0.0",
+    "@astrojs/tailwind": "^1.0.0",
+    "@types/file-saver": "^2.0.5",
+    "astro": "^1.0.5",
+    "svelte": "^3.46.4"
+  },
+  "dependencies": {
+    "file-saver": "^2.0.5",
+    "html2canvas": "^1.4.1"
+  }
+}

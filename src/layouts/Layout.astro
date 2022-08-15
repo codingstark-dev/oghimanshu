@@ -1,0 +1,68 @@
+---
+export interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props as Props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width" />
+	<link rel="icon" type="image/x-icon" href="/fav.png" />
+	<title>{title}</title>
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+	<meta property="og:image" content="/fav.png" />
+	<meta property="og:url" content="https://og.himanshu.dev" />
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="og.himanshu.dev" />
+	<meta property="og:locale" content="en_US" />
+
+	<meta name="description" content={description}>
+</head>
+
+<body>
+	<slot />
+</body>
+
+</html>
+<style>
+	:root {
+		--font-size-base: clamp(1rem, 0.34vw + 0.91rem, 1.19rem);
+		--font-size-lg: clamp(1.2rem, 0.7vw + 1.2rem, 1.5rem);
+		--font-size-xl: clamp(1.77rem, 2.38vw + 1.85rem, 1rem);
+
+		--color-text: hsl(12, 5%, 4%);
+		--color-bg: hsl(10, 21%, 95%);
+		--color-border: hsl(17, 24%, 90%);
+	}
+
+	html {
+		font-family: system-ui, sans-serif;
+		font-size: var(--font-size-base);
+		color: var(--color-text);
+		background-color: var(--color-bg);
+	}
+
+	body {
+		margin: 0;
+	}
+
+	:global(h1) {
+		font-size: var(--font-size-xl);
+	}
+
+	:global(h2) {
+		font-size: var(--font-size-lg);
+	}
+
+	:global(code) {
+		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+			Bitstream Vera Sans Mono, Courier New, monospace;
+	}
+</style>
